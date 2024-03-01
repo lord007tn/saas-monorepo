@@ -1,20 +1,42 @@
 {
-  "name": "saas-monorepo",
+  "name": "@route-genius/root",
   "private": true,
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
+    "build": "turbo run build",
+    "build:api": "turbo run build --filter=api...",
+    "dev": "dotenv -e .env -e .env.development -- turbo run dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts,mdx,vue}\"",
+    "clean": "rm -rf node_modules .turbo && turbo run clean",
+    "prepare": "husky install",
+    "commitlint": "commitlint --edit",
+    "commit": "git-cz",
+    "db:push": "turbo run db:push",
+    "db:reset": "turbo run db:reset",
+    "db:studio": "turbo run db:studio",
+    "db:generate": "turbo run db:generate"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
-    "prettier": "^3.1.1",
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
+    "@commitlint/cz-commitlint": "^18.4.4",
+    "@commitlint/prompt-cli": "^18.4.4",
+    "@saas-monorepo/eslint-config": "workspace:*",
+    "@saas-monorepo/prettier-config": "workspace:*",
+    "@saas-monorepo/typescript-config": "workspace:*",
+    "commitizen": "^4.3.0",
+    "dotenv": "^16.3.1",
+    "dotenv-cli": "^7.3.0",
+    "husky": "^8.0.3",
+    "inquirer": "^8.2.6",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.1",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@8.9.0",
-  "engines": {
-    "node": ">=18"
-  }
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "packageManager": "pnpm@8.9.0"
 }

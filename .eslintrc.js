@@ -1,10 +1,23 @@
-// This configuration only applies to the package manager root.
-/** @type {import("eslint").Linter.Config} */
+/* eslint-env node */
+require('@rushstack/eslint-patch/modern-module-resolution')
+
 module.exports = {
-  ignorePatterns: ["apps/**", "packages/**"],
-  extends: ["@repo/eslint-config/library.js"],
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    project: true,
+  root: true,
+  extends: [
+    'plugin:vue/vue3-recommended',
+    'eslint:recommended',
+    '@vue/eslint-config-typescript',
+    '@vue/eslint-config-prettier/skip-formatting',
+    'plugin:tailwindcss/recommended'
+  ],
+  plugins: ['tailwindcss'],
+  rules: {
+    'tailwindcss/no-custom-classname': 'off'
   },
-};
+  parserOptions: {
+    ecmaVersion: 'latest'
+  },
+  env: {
+    node: true
+  }
+}
