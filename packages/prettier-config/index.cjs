@@ -7,20 +7,14 @@ module.exports = {
   tabWidth: 2,
   trailingComma: 'all',
 
-  importOrder: [
-    '^vue$',
-    '<THIRD_PARTY_MODULES>',
-    '^@route-genius/(.*)$',
-    '^~/(.*)$',
-    '^[./]',
-  ],
+  importOrder: ['^vue$', '<THIRD_PARTY_MODULES>', '^@route-genius/(.*)$', '^~/(.*)$', '^[./]'],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
   // !: Waiting for these to make it upstream
   // importOrderMergeDuplicateImports: true,
   // importOrderCombineTypeAndValueImports: true,
 
-  plugins: ['@trivago/prettier-plugin-sort-imports', 'prettier-plugin-tailwindcss'],
+  plugins: [],
 
   overrides: [],
 };
