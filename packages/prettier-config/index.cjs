@@ -14,7 +14,10 @@ module.exports = {
   // importOrderMergeDuplicateImports: true,
   // importOrderCombineTypeAndValueImports: true,
 
-  plugins: [],
+  plugins: [
+    require.resolve('@trivago/prettier-plugin-sort-imports'),
+    require.resolve('prettier-plugin-tailwindcss'),
+  ],
 
   overrides: [],
 };
